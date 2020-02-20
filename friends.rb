@@ -7,26 +7,23 @@ def favourite_tv_show(person)
 end
 
 def likes_to_eat(person, food)
-  snack = person[:favourites][:snacks]
-  return snack.select {|sn| sn == food}.any?
+  person[:favourites][:snacks].select {|sn| sn == food}.any?
   # return person[:favourites][:snacks].include?(food)
 end
 
 def add_friend(person, friend)
-  friends_list = person[:friends]
-  # p friends_list.length
-  friends_list.push(friend)
-  # p friends_list.length
+  person[:friends].push(friend)
 end
 
 def remove_friend(person, friend)
-  friends_list = person[:friends]
-  # p friends_list.length
-  friends_list.delete_at(friends_list.find_index(friend))
-  # p friends_list.length
+  person[:friends].delete_at(person[:friends].find_index(friend))
 end
 
 def total_money(people)
-  # money_array.map {|cash| }
   return people.reduce(0){|total, people| total + people[:monies]}
+end
+
+def lend_money(lender, lendee, money)
+  lender[:monies] -= money
+  lendee[:monies] += money
 end

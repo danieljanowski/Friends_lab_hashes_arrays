@@ -107,6 +107,7 @@ end
   # (hint: Same as above, testing for the length of the array should be sufficient)
 def test_remove_the_person
     remove_friend(@person2, "Fred")
+    assert_equal(0, @person2[:friends].length)
 end
 
 
@@ -121,11 +122,18 @@ end
   # 7. For two given people, allow the first person to loan a given value of money to the other
   # (hint: our function will probably need 3 arguments passed to it... the lender, the lendee, and the amount for this function)
   # (hint2: You should test if both the lender's and the lendee's money have changed, maybe two assertions?)
-
+def test_lend_money
+  lend_money(@person3, @person2, 10)
+  assert_equal(10, @person3[:monies])
+  assert_equal(12, @person2[:monies])
+end
 
   # 8. Find the set of everyone's favourite food joined together
   # (hint: concatenate the favourites/snack arrays together)
-
+def test_all_favourite_foods
+  result = all_favourite_foods(@people)
+  assert_equal(["charcuterie", "soup", "bread", "Scooby snacks", "spaghetti", "ratatouille", "spinach"])
+end
 
   # 9. Find people with no friends
   # (hint: return an array, there might be more people in the future with no friends!)
