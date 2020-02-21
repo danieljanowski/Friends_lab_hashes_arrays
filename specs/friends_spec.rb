@@ -132,10 +132,14 @@ end
   # (hint: concatenate the favourites/snack arrays together)
 def test_all_favourite_foods
   result = all_favourite_foods(@people)
-  assert_equal(["charcuterie", "soup", "bread", "Scooby snacks", "spaghetti", "ratatouille", "spinach"])
+  assert_equal(["charcuterie", "soup", "bread", "Scooby snacks", "spaghetti", "ratatouille", "spinach"], result)
 end
 
   # 9. Find people with no friends
   # (hint: return an array, there might be more people in the future with no friends!)
+def test_no_friends
+  result = no_friends(@people)
+  assert_equal("Daphne", result)
+end
 
 end
